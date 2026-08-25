@@ -1,18 +1,16 @@
 fx_version 'cerulean'
-games { 'gta5' }
+game 'gta5'
 
-author 'Antigravity AI'
-description 'Pantalla de Carga Premium de FiveM - Temática Cyberpunk/Synthwave'
+author 'Zyra Store'
+description 'Premium FiveM loading screen with modern animated UI, optimized performance and easy customization.'
 version '1.0.0'
 
--- Definición de la pantalla de carga
 loadscreen 'index.html'
 
--- Archivos que deben descargarse al cliente para que funcione la pantalla de carga
 files {
     'index.html',
     'style.css',
+    'app.js',
     'config.js',
-    'locales.js',
-    'app.js'
+    'locales.js'
 }
