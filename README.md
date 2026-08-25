@@ -2,6 +2,14 @@
 
 Custom animated loading screen for FiveM servers. Modern UI, smooth animations, lightweight and optimized for performance.
 
+## Preview
+
+![Zyra Loading Screen Preview 1](zyraloandingscreen2.png)
+
+![Zyra Loading Screen Preview 2](zyraloandingscreen23.png)
+
+![Zyra Loading Screen Preview 3](zyraloandingscrren23.png)
+
 ## Features
 
 - Modern, clean and fully customizable UI
