@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyra Store - Cargando...</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Configuración del recurso -->
+    <script src="config.js"></script>
+    <script src="locales.js"></script>
+</head>
+<body>
+    <!-- Video de Fondo (Oculto por defecto) -->
+    <video id="bg-video" loop muted playsinline class="bg-video-el hidden"></video>
+
+    <!-- Fondo de Partículas Interactivo -->
+    <canvas id="particles-canvas"></canvas>
+    
+    <!-- Superposición y scanlines -->
+    <div class="overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Contenedor Principal Split-Screen -->
+    <main class="split-container" id="loading-container">
+        
+        <!-- COLUMNA IZQUIERDA (Panel Sólido/Oscuro) -->
+        <aside class="split-left">
+            <!-- CABECERA: Logo/Nombre del Servidor -->
+            <header class="server-header">
+                <div id="logo-container" class="logo-wrapper">
+                    <!-- Se poblará dinámicamente con app.js -->
+                </div>
+                <p id="server-subtitle" class="server-tagline">Conectando a la ciudad...</p>
+            </header>
+
+            <!-- REDES SOCIALES -->
+            <div class="socials-container">
+                <h3 id="social-header" class="panel-subtitle">ENLACES OFICIALES</h3>
+                <div class="social-links-grid" id="social-links-grid">
+                    <!-- Se poblará dinámicamente con app.js -->
+                </div>
+            </div>
+
+            <!-- REPRODUCTOR DE MÚSICA -->
+            <div class="music-card" id="music-card-wrapper">
+                <div class="music-info">
+                    <div class="music-visualizer" id="visualizer">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <div class="music-details">
+                        <h4 class="track-title" id="track-title">Cargando Audio...</h4>
+                        <p class="track-artist" id="track-artist">Por favor espera</p>
+                    </div>
+                </div>
+                <div class="music-controls">
+                    <button id="play-pause-btn" class="control-btn" aria-label="Reproducir o pausar música">
+                        <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        </svg>
+                    </button>
+                    <div class="volume-slider-wrapper">
+                        <button id="volume-mute-btn" class="volume-icon-btn" aria-label="Silenciar">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="volume-icon">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                            </svg>
+                        </button>
+                        <button id="volume-down-btn" class="vol-adj-btn" aria-label="Bajar volumen">-</button>
+                        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" class="vol-slider">
+                        <button id="volume-up-btn" class="vol-adj-btn" aria-label="Subir volumen">+</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- BARRA DIVISORIA VERTICAL (ESTÁTICA) -->
+        <div class="split-divider"></div>
+
+        <!-- COLUMNA DERECHA (Panel Transparente/Informativo) -->
+        <section class="split-right">
+            <!-- PANEL SLIDER DE INFORMACIÓN (Reglas, Novedades, Controles) -->
+            <article class="glass-panel info-slider-card" id="info-slider-panel">
+                <div class="slider-wrapper" id="slider-wrapper">
+                    <!-- Se poblará dinámicamente con app.js -->
+                </div>
+
+                <!-- Indicadores de Slider -->
+                <div class="slider-dots" id="slider-dots">
+                    <!-- Se poblará dinámicamente con app.js -->
+                </div>
+            </article>
+
+            <!-- PIE DE CARGA MINIMALISTA CON BARRA HORIZONTAL -->
+            <footer class="loading-footer">
+                <div class="loading-meta">
+                    <!-- Log de carga -->
+                    <div class="log-container">
+                        <span id="log-prefix" class="log-prefix">ESTADO:</span>
+                        <span id="log-text" class="log-text">Cargando...</span>
+                    </div>
+                    
+                    <!-- Indicación de pausa en el medio -->
+                    <div class="music-tip-container" id="music-tip-container">
+                        <span class="music-tip-text" id="music-tip-text">PRESIONA ESPACIO PARA DETENER LA MÚSICA</span>
+                    </div>
+                    
+                    <!-- Porcentaje de carga -->
+                    <div class="meta-right">
+                        <div class="progress-percentage"><span id="progress-val">0</span>%</div>
+                    </div>
+                </div>
+                
+                <!-- Barra de carga horizontal elegante -->
+                <div class="progress-track">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </footer>
+        </section>
+
+    </main>
+
+    <!-- Elemento Audio Oculto -->
+    <audio id="bg-audio" loop preload="auto"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
